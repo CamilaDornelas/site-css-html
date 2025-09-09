@@ -99,6 +99,17 @@ body {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 0rem;
+    text-shadow: 
+    0px 0px 3px rgba(0,0,0,1),
+    0px 0px 6px rgb(54, 54, 54),
+    0px 0px 9px rgba(0,0,0,1);
+}
+
+.hero-content p {
+    text-shadow: 
+    0px 0px 3px rgba(0,0,0,1),
+    0px 0px 6px rgb(44, 44, 44),
+    0px 0px 9px rgba(0,0,0,1);
 }
 
 .cta-button {
@@ -111,6 +122,7 @@ body {
     font-size: 1.1rem;
     transition: background 0.3s;
     margin: 1rem;
+    box-shadow: 0px 0px 6px #000000;
 }
 
 .cta-button:hover {
@@ -119,7 +131,7 @@ body {
 
 /* Sobre Section */
 .sobre {
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     background: linear-gradient(90deg, #dadada 0%, #333333 100%);
 }
 
@@ -158,12 +170,6 @@ body {
     display: block;
     border-radius: 10px;
 }
-
-
-.sobre-card:hover {
-    transform: translateY(-5px);
-}
-
 
 /* Musicas Section */
 
@@ -204,7 +210,7 @@ body {
   top: 0;
   left: 0;              /* começa exatamente atrás da imagem */
   width: 500px;
-  padding: 50px;
+  padding: 50px 0px 50px 70px;
   background: #1d1d1d;
   color: white;
   border-radius: 10px;
@@ -235,7 +241,7 @@ body {
 
 .contato h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
 }
 
@@ -380,6 +386,6 @@ body {
   }
 }
 
-#home, #sobre, #musicas, #contador, #contato {
+#home, #sobre, #musicas, #contato {
   scroll-margin-top: 120px;
 }

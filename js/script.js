@@ -3,70 +3,11 @@ function mostrarMensagem() {
     alert('DEAD!');
 }
 
-// Função para destacar card ao passar o mouse
-function destacarCard(element) {
-    element.classList.add('destaque');
-}
-
-function removerDestaque(element) {
-    element.classList.remove('destaque');
-
-}
-
-// Função para destacar card ao passar o mouse
-function mudaCor(element) {
-      // Gera uma cor aleatória
-      const cor = "#000000"
-
-      element.style.backgroundColor = cor;
-}
-
 // Função para enviar formulário
 function enviarFormulario(event) {
     event.preventDefault();
-    alert('Carta enviada!');
+    alert('Enviado com sucesso!');
     event.target.reset();
-}
-
-// Contador animado - só inicia quando a seção estiver visível
-function iniciarContador() {
-    const contadorSection = document.querySelector('.contador');
-    const numeros = document.querySelectorAll('.numero');
-    
-    if (!contadorSection || numeros.length === 0) return;
-    
-    let contadorIniciado = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !contadorIniciado) {
-                contadorIniciado = true;
-                
-                numeros.forEach(numero => {
-                    const target = parseInt(numero.getAttribute('data-target'));
-                    const incremento = Math.ceil(target / 100);
-                    let valorAtual = 0;
-                    
-                    const timer = setInterval(() => {
-                        valorAtual += incremento;
-                        if (valorAtual >= target) {
-                            valorAtual = target;
-                            clearInterval(timer);
-                        }
-                        numero.textContent = valorAtual;
-                    }, 20);
-                });
-
-                // Para de observar após iniciar o contador
-                observer.unobserve(contadorSection);
-            }
-        });
-    }, {
-        threshold: 0.5 // Quando 50% da seção estiver visível
-    });
-
-    // Começa a observar a seção de contador
-    observer.observe(contadorSection);
 }
 
 // Menu mobile
@@ -115,7 +56,11 @@ function atualizarMenuAtivo() {
             current = section.getAttribute('id') || '';
         }
     });
-    
+
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 5) {
+        current = sections[sections.length - 1].getAttribute('id') || '';
+    }
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
@@ -127,7 +72,6 @@ function atualizarMenuAtivo() {
 
 // Iniciar quando a página carregar
 window.addEventListener('load', function() {
-    iniciarContador();
     atualizarMenuAtivo();
 });
 
