@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Black Parade</title>
+    <title>Sobre - The Black Parade</title>
     <link rel="icon" type="image/png" href="images/icone.png">
-    <link id="stylesheet" rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,7 +16,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="musicas.html">Músicas</a></li>
                 <li><a href="contato.html">Faça parte</a></li>
             </ul>
@@ -28,19 +28,16 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Long Live</h1>
-            <p>to the savior of the broken</p>
-            <button class="cta-button" onclick="mostrarMensagem()">STATUS</button>
-        </div>
+<!-- Contato Section -->
+    <section id="contato" class="contato">
+        <h2>Faça parte da "The Black Parade"</h2>
+        <form class="contato-form" onsubmit="enviarFormulario(event)">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu email" required>
+            <textarea placeholder="Por que você quer fazer parte da 'The Black Parade?'" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
-
-    <section class="conteudo">
-    <!-- resto da página -->
-    </section>
-    
 
     <!-- Footer -->
     <footer class="footer">
