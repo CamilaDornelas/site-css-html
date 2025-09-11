@@ -120,26 +120,16 @@ body {
 
 .hero-card {
     background-color: #2d2d2d;
-    height: 453px;
     width: 90%;
     max-width: 2200px;
     min-width: 300px;
-    padding: 4rem;
+    padding: 4rem 4rem;
     border-radius: 10px;
     margin: auto;
-    position: relative; /* referência para os cards filhos */
-}
-
-.hero-card {
-  position: relative;
-  background-color: #2d2d2d;
-  height: 453px;
-  width: 90%;
-  max-width: 2200px;
-  min-width: 300px;
-  padding: 4rem;
-  border-radius: 10px;
-  margin: auto;
+    position: relative;
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; /* espaço entre os cards */
 }
 
 /* Cards sobrepostos no desktop */
@@ -148,20 +138,18 @@ body {
 .hero-card-DontLove,
 .hero-card-Teenagers,
 .hero-card-Blood {
-  position: absolute;
-  top: 80%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: auto;
-  z-index: 10;
+  position: static;
+    transform: none;
+    width: 100%; /* cada card ocupa a largura do grid */
+    height: auto;
 }
 
 /* Posições horizontais fixas */
 .hero-card-welcome { left: 15%; }
-.hero-card-Famous { left: 32%; }
-.hero-card-DontLove { left: 50%; }
-.hero-card-Teenagers { left: 68%; }
-.hero-card-Blood { left: 85%; }
+.hero-card-Famous { left: 33%; }
+.hero-card-DontLove { left: 51%; }
+.hero-card-Teenagers { left: 69%; }
+.hero-card-Blood { left: 87%; }
 
 .hero-card-welcome img,
 .hero-card-Famous img,
@@ -353,28 +341,6 @@ body {
 }
 
 /* Responsividade */
-@media (max-width: 1200px) {
-    .hero-card-welcome,
-    .hero-card-Famous,
-    .hero-card-DontLove,
-    .hero-card-Teenagers,
-    .hero-card-Blood {
-        position: relative;  /* sai do absolute */
-        top: auto;
-        transform: none;
-        display: inline-block;
-        width: 45%;          /* largura menor para caber 2 por linha */
-        margin: 0.5rem;      /* espaçamento entre os cards */
-    }
-
-    .conteudo {
-        display: flex;
-        flex-wrap: wrap;     /* permite empilhar */
-        justify-content: center;
-    }
-}
-
-
 @media (max-width: 768px) {
     .nav-menu {
         position: absolute;
@@ -450,15 +416,6 @@ body {
     .cards-container:hover .card-imagem {
     transform: none !important;
   }
-
-    .hero-card-welcome,
-    .hero-card-Famous,
-    .hero-card-DontLove,
-    .hero-card-Teenagers,
-    .hero-card-Blood {
-        width: 70%;          /* um card por linha */
-        margin: 0.5rem auto; /* centraliza o card */
-    }
 
 }
 
