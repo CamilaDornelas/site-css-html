@@ -27,56 +27,27 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Smooth scroll para links de navegação
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Adicionar classe active no menu durante a rolagem
 function atualizarMenuAtivo() {
-    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id') || '';
-        }
-    });
-
-        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 5) {
-        current = sections[sections.length - 1].getAttribute('id') || '';
-    }
+    const currentPage = window.location.pathname.split("/").pop(); 
+    // pega só o nome do arquivo, ex: "sobre.html"
 
     navLinks.forEach(link => {
-        link.classList.remove('active');
+        link.classList.remove('active'); // remove de todos
         const href = link.getAttribute('href');
-        if (href === `#${current}`) {
-            link.classList.add('active');
+        
+        if (href === currentPage || (currentPage === "" && href === "index.html")) {
+            link.classList.add('active'); // adiciona no link certo
         }
     });
 }
 
+// chama a função assim que carregar
+document.addEventListener("DOMContentLoaded", atualizarMenuAtivo);
+
+
 // Iniciar quando a página carregar
 window.addEventListener('load', function() {
-    atualizarMenuAtivo();
-});
-
-// Atualizar menu durante o scroll
-window.addEventListener('scroll', function() {
     atualizarMenuAtivo();
 });
 
